@@ -1,0 +1,22 @@
+{
+  "name": "yoru-no-rinseki-pv",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "audio": "python3 audio/make_audio.py",
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts YoruPV out/yoru-no-rinseki_pv_1080x1920.mp4",
+    "still": "remotion still src/index.ts YoruPV out/still.png --frame=300"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.546",
+    "@remotion/fonts": "4.0.546",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.546"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "typescript": "^7.0.2"
+  }
+}
