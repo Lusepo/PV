@@ -5,23 +5,23 @@
   "height": 1920,
   "note": "秒単位。Remotion(src/)と音声生成(audio/make_audio.py)の両方がこのファイルを読む。カットの尺や環境音の位置はここを直してから npm run audio → npm run render。",
   "sfx": [
-    { "id": "town",    "at": 0.0,  "dur": 7.4, "gain": 0.55 },
+    { "id": "town",    "at": 0.0,  "dur": 7.4, "gain": 0.35 },
     { "id": "train",   "at": 1.2,  "dur": 4.5, "gain": 0.35 },
     { "id": "door",    "at": 6.35, "gain": 0.75 },
     { "id": "steps",   "at": 10.9, "dur": 1.0, "gain": 0.35 },
     { "id": "room",    "at": 11.6, "dur": 3.6, "gain": 0.30 },
     { "id": "cup",     "at": 12.5, "gain": 0.55 },
-    { "id": "rain",    "at": 14.9, "dur": 4.4, "gain": 0.65 },
+    { "id": "rain",    "at": 14.9, "dur": 4.4, "gain": 0.45 },
     { "id": "bell",    "at": 15.9, "gain": 0.45 },
     { "id": "drip",    "at": 19.0, "dur": 1.6, "gain": 0.45 },
     { "id": "chime",   "at": 20.1, "gain": 0.30 },
-    { "id": "wind",    "at": 22.9, "dur": 4.3, "gain": 0.60 },
+    { "id": "wind",    "at": 22.9, "dur": 4.3, "gain": 0.42 },
     { "id": "shimmer", "at": 27.9, "gain": 0.45 },
-    { "id": "rain",    "at": 31.0, "dur": 2.6, "gain": 0.45 },
+    { "id": "rain",    "at": 31.0, "dur": 2.6, "gain": 0.32 },
     { "id": "shutter", "at": 34.25, "gain": 0.70 },
     { "id": "tap",     "at": 36.95, "gain": 0.45 },
     { "id": "tap",     "at": 39.35, "gain": 0.45 },
-    { "id": "wind",    "at": 45.0, "dur": 8.2, "gain": 0.22 },
+    { "id": "wind",    "at": 45.0, "dur": 8.2, "gain": 0.16 },
     { "id": "town",    "at": 49.4, "dur": 4.0, "gain": 0.25 }
   ]
 }

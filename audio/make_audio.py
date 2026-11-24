@@ -82,7 +82,7 @@ def reverb(x, sec=3.2, wet=0.35, predelay=0.02, damp=6000):
     irs = []
     for _ in range(2):
         ir = rng.standard_normal(n) * np.exp(-t * 6.9 / sec)
-        ir = fft_filter(ir, lo=180, hi=damp, slope=2)
+        ir = fft_filter(ir, lo=180, hi=damp, slope=3)
         ir[: int(predelay * SR)] = 0
         irs.append(ir / np.sqrt(np.sum(ir ** 2)))
     mono = x if x.ndim == 1 else x.mean(axis=1)
@@ -223,7 +223,7 @@ def make_music():
 
 # ---------------------------------------------------------------- sfx
 def sfx_rain(dur):
-    base = fft_filter(noise(dur), lo=600, hi=7000, slope=2) * 0.25
+    base = fft_filter(noise(dur), lo=500, hi=4500, slope=4) * 0.22
     drops = np.zeros(int(dur * SR))
     for _ in range(int(dur * 70)):
         i = rng.integers(0, len(drops) - 2000)
@@ -237,7 +237,7 @@ def sfx_rain(dur):
 def sfx_wind(dur):
     t = t_axis(dur)
     n = noise(dur)
-    lo = fft_filter(n, lo=120, hi=900, slope=2)
+    lo = fft_filter(n, lo=120, hi=700, slope=4)
     gust = 0.55 + 0.45 * np.sin(2 * np.pi * 0.23 * t + 1.0) * np.sin(2 * np.pi * 0.07 * t + 0.3)
     whistle = fft_filter(noise(dur), lo=1100, hi=1500, slope=6) * (0.3 + 0.7 * np.clip(gust - 0.6, 0, 1))
     x = (lo * 0.6 + whistle * 0.8) * gust
@@ -245,14 +245,14 @@ def sfx_wind(dur):
 
 
 def sfx_town(dur):
-    hum = fft_filter(noise(dur), lo=60, hi=500, slope=2) * 0.35
-    air = fft_filter(noise(dur), lo=2000, hi=6000, slope=2) * 0.05
+    hum = fft_filter(noise(dur), lo=60, hi=400, slope=4) * 0.35
+    air = fft_filter(noise(dur), lo=1500, hi=3500, slope=4) * 0.025
     x = hum + air
     return fade(np.stack([x, np.roll(x, 1500)], axis=1), 1.0, 1.4)
 
 
 def sfx_room(dur):
-    x = fft_filter(noise(dur), lo=80, hi=1500, slope=2) * 0.18
+    x = fft_filter(noise(dur), lo=80, hi=900, slope=4) * 0.18
     return fade(x, 0.6, 0.8)
 
 
